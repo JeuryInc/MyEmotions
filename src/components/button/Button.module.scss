@@ -1,0 +1,477 @@
+@import "../../styles/Variables.module.scss";
+@import "../../styles/Colors.module";
+@import "../../styles/mixins/mediaQuery.module.scss";
+@import "../../styles/mixins/VendorPrefixes.module.scss";
+
+@keyframes spinner-animation {
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.ownDiv {
+  display: flex;
+  flex: 0 0 100%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .ownButton {
+    font-family: $Saira-semibold;
+    font-size: $fs-sm;
+    line-height: $lh-2lg;
+    display: inherit;
+    flex: inherit;
+    max-width: inherit;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 22px;
+    border-radius: 10px;
+    border: unset;
+    cursor: pointer;
+    @include transition(background-color, 200ms, ease-in, 0s);
+
+    &:after {
+      position: absolute;
+      display: flex;
+      content: "";
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      background-color: $transparent-bg;
+      border: solid 2px $turquoise-50;
+      border-radius: 14px;
+      opacity: 0;
+      @include transition(all, 200ms, ease-out, 0s);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      &:after {
+        opacity: 1;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+      }
+    }
+
+    .spinner {
+      height: 25px;
+      width: 90px;
+      display: flex;
+      align-items: center;
+
+      .dot {
+        width: 15px;
+        height: 15px;
+        margin: 0 7.5px;
+        border: 3px solid $dark-blue;
+        border-radius: 50%;
+        float: left;
+        transform: scale(0);
+        animation: spinner-animation 1500ms ease infinite 0ms;
+
+        &:nth-child(1) {
+          animation-delay: 300ms;
+        }
+
+        &:nth-child(2) {
+          animation-delay: 600ms;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 900ms;
+        }
+      }
+    }
+
+    &.ownButtonStyleDefault {
+      color: $dark-blue-85;
+      background-color: $turquoise;
+
+      .spinner {
+        .dot {
+          border-color: $dark-blue-85;
+        }
+      }
+
+      &.invertFontColorClass {
+        color: $white;
+
+        .spinner {
+          .dot {
+            border-color: $white;
+          }
+        }
+      }
+
+      &:active,
+      &:focus {
+        &:after {
+          border-color: $turquoise;
+        }
+      }
+    }
+
+    &.ownButtonStyleOne {
+      color: $turquoise;
+      background-color: $dark-green;
+
+      .spinner {
+        .dot {
+          border-color: $turquoise;
+        }
+      }
+
+      &.invertFontColorClass {
+        color: $white;
+
+        .spinner {
+          .dot {
+            border-color: $white;
+          }
+        }
+      }
+
+      &:after {
+        border-color: $dark-green-50;
+      }
+
+      &:active,
+      &:focus {
+        &:after {
+          border-color: $dark-green;
+        }
+      }
+    }
+
+    &.ownButtonStyleTwo {
+      color: $dark-blue-85;
+      background-color: $dark-green-06;
+
+      .spinner {
+        .dot {
+          border-color: $dark-blue-85;
+        }
+      }
+
+      &:after {
+        border-color: $white-32;
+      }
+
+      &:active,
+      &:focus {
+        &:after {
+          border-color: $dark-green-06;
+        }
+      }
+    }
+
+    &.ownButtonStyleThree {
+      color: $dark-blue;
+      background-color: $error;
+
+      .spinner {
+        .dot {
+          border-color: $dark-blue;
+        }
+      }
+
+      &.invertFontColorClass {
+        color: $white;
+
+        .spinner {
+          .dot {
+            border-color: $white;
+          }
+        }
+      }
+
+      &:after {
+        border-color: $error-50;
+      }
+
+      &:active,
+      &:focus {
+        &:after {
+          border-color: $error;
+        }
+      }
+    }
+
+    &.ownButtonStyleFour {
+      color: $dark-blue-85;
+      background-color: $white;
+
+      .spinner {
+        .dot {
+          border-color: $dark-blue-85;
+        }
+      }
+
+      &:after {
+        border-color: $white-50;
+      }
+
+      &:hover {
+        background-color: $white-light;
+      }
+
+      &:active,
+      &:focus {
+        &:after {
+          border-color: $white;
+        }
+      }
+
+      &:disabled {
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: $white;
+        }
+      }
+    }
+
+    &.ownButtonStyleFive {
+      color: $dark-blue-85;
+      background-color: $transparent-bg;
+      border: solid 2px $turquoise;
+      padding: 8px 20px;
+
+      .spinner {
+        .dot {
+          border-color: $dark-blue-85;
+        }
+      }
+
+      &.invertFontColorClass {
+        color: $white;
+
+        .spinner {
+          .dot {
+            border-color: $white;
+          }
+        }
+      }
+
+      &:after {
+        border-color: $turquoise-50;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+      }
+
+      &:hover {
+        background-color: $turquoise-16;
+
+        &:after {
+          top: -6px;
+          left: -6px;
+          right: -6px;
+          bottom: -6px;
+        }
+      }
+
+      &:active,
+      &:focus {
+        background-color: $turquoise-32;
+
+        &:after {
+          border-color: $turquoise;
+          top: -6px;
+          left: -6px;
+          right: -6px;
+          bottom: -6px;
+        }
+      }
+
+      &:disabled {
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: $transparent-bg;
+        }
+      }
+    }
+
+    &.ownButtonStyleSix {
+      color: $dark-blue;
+      background-color: $transparent-bg;
+      border: solid 2px $error;
+      padding: 8px 10px;
+
+      .spinner {
+        .dot {
+          border-color: $dark-blue;
+        }
+      }
+
+      &.invertFontColorClass {
+        color: $white;
+
+        .spinner {
+          .dot {
+            border-color: $white;
+          }
+        }
+      }
+
+      &:after {
+        border-color: $error-50;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+      }
+
+      &:hover {
+        background-color: $error-16;
+
+        &:after {
+          top: -6px;
+          left: -6px;
+          right: -6px;
+          bottom: -6px;
+        }
+      }
+
+      &:active,
+      &:focus {
+        background-color: $error-32;
+
+        &:after {
+          border-color: $error-50;
+          top: -6px;
+          left: -6px;
+          right: -6px;
+          bottom: -6px;
+        }
+      }
+
+      &:disabled {
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: $transparent-bg;
+        }
+      }
+    }
+
+    &.ownButtonStyleSeven {
+      color: $dark-blue-85;
+      background-color: $transparent-bg;
+      border: solid 2px $dark-green;
+      padding: 8px 20px;
+
+      .spinner {
+        .dot {
+          border-color: $dark-blue-85;
+        }
+      }
+
+      &:after {
+        border-color: $dark-green-50;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+      }
+
+      &:hover {
+        background-color: $dark-green-16;
+
+        &:after {
+          top: -6px;
+          left: -6px;
+          right: -6px;
+          bottom: -6px;
+        }
+      }
+
+      &:active,
+      &:focus {
+        background-color: $dark-green-32;
+
+        &:after {
+          border-color: $dark-green;
+          top: -6px;
+          left: -6px;
+          right: -6px;
+          bottom: -6px;
+        }
+      }
+
+      &:disabled {
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: $transparent-bg;
+        }
+      }
+
+      &.invertFontColorClass {
+        border-color: $white;
+        color: $white;
+
+        .spinner {
+          .dot {
+            border-color: $white;
+          }
+        }
+
+        &:after {
+          border-color: $white;
+        }
+
+        &:hover {
+          background-color: $dark-green-16;
+
+          &:after {
+            border-color: $white-50;
+          }
+        }
+
+        &:active,
+        &:focus {
+          background-color: $white-32;
+
+          &:after {
+            border-color: $white;
+          }
+        }
+      }
+    }
+
+    &.small_btn {
+      font-size: $fs-xs;
+      padding: 10px 20px;
+      line-height: $lh-2sm;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+
+      &:after {
+        opacity: 0;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        &:after {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

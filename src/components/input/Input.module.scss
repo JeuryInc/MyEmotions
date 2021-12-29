@@ -1,0 +1,317 @@
+@import "../../styles/variables.module.scss";
+@import "../../styles/colors.module";
+@import "../../styles/mixins/vendorprefixes.module.scss";
+
+.own_div {
+  display: flex;
+  flex-flow: column-reverse;
+  justify-content: center;
+  flex: 0 0 100%;
+  max-width: 100%;
+  min-width: 0;
+  border: 0;
+  margin: 0;
+  vertical-align: top;
+
+  .border {
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    content: "";
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60px;
+    background-color: $transparent-bg;
+    border: solid 2px $turquoise-50;
+    border-radius: 14px;
+    opacity: 0;
+    @include transition(all, 200ms, ease-out, 0s);
+  }
+
+  .label_text {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: $Saira-medium;
+    line-height: $lh-2lg;
+    font-size: $fs-sm;
+    color: $dark-green;
+    transform-origin: top left;
+    transform: translate(12px, 17px) scale(1);
+    @include transition(all, 200ms, cubic-bezier(0, 0, 0.2, 1), 0ms);
+  }
+
+  .required {
+    color: $error;
+  }
+
+  .icon {
+    pointer-events: none;
+    display: flex;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 12px;
+    top: 20px;
+    cursor: pointer;
+
+    img {
+      position: absolute;
+      width: 100%;
+      opacity: 1;
+      @include transition(all, 200ms, ease-out, 0s);
+      &:last-child {
+        opacity: 0;
+      }
+    }
+  }
+
+  .own_icon {
+    @extend .icon;
+    img {
+      &:last-child {
+        opacity: 1;
+      }
+    }
+  }
+
+  .own_icon_success {
+    @extend .icon;
+  }
+
+  .input {
+    font-family: $Saira-semibold;
+    font-size: $fs-sm;
+    color: $dark-blue-second;
+    background-color: $dark-green-06;
+    line-height: $lh-2lg;
+    width: 100%;
+    height: 60px;
+    padding: 29px 12px 12px;
+    border: 0;
+    border-radius: 12px;
+    outline: none;
+    -webkit-appearance: textarea;
+
+    @include transition(
+      background-color,
+      200ms,
+      cubic-bezier(0, 0, 0.2, 1),
+      0ms
+    );
+
+    &[type="time"]::-webkit-calendar-picker-indicator,
+    &[type="date"]::-webkit-calendar-picker-indicator {
+      color: transparent;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 20px;
+      right: 12px;
+    }
+
+    &[type="time"]::-webkit-calendar-picker-indicator {
+      background-image: url("../../assets/svgs/clock.svg");
+      background-repeat: none;
+    }
+
+    &[type="date"]::-webkit-calendar-picker-indicator {
+      background-image: url("../../assets/svgs/calendar.svg");
+      background-repeat: none;
+    }
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:hover,
+    &:focus {
+      + .border {
+        opacity: 1;
+        top: -4px;
+        left: -4px;
+        width: calc(100% + 8px);
+        height: 68px;
+      }
+
+      + .border + .label_text + .icon {
+        img {
+          opacity: 0;
+
+          &:last-child {
+            opacity: 1;
+          }
+        }
+      }
+
+      & + .border + .label_text + .own_icon_success {
+        img {
+          &:last-child {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    &:focus {
+      background-color: $white;
+      border-color: $turquoise;
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      + .border + .label_text {
+        color: $dark-green-80;
+        transform: translate(12px, 8px) scale(0.8);
+      }
+    }
+
+    &:not(:placeholder-shown) {
+      + .border + .label_text + .own_icon_success {
+        img {
+          &:last-child {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &:-webkit-autofill {
+      &:hover {
+        + .border + .label_text {
+          color: $dark-green-80;
+        }
+      }
+    }
+  }
+
+  & > span {
+    font-family: $Saira-regular;
+    line-height: $lh-1lg;
+    font-size: $fs-xxs;
+    color: $dark-green-80;
+    padding: 4px 0 0 12px;
+
+    &.error {
+      padding: 8px 0 0 12px;
+      font-size: $fs-xs;
+      line-height: $lh-2sm;
+      color: $error;
+    }
+  }
+
+  &.small_input {
+    .border {
+      height: 48px;
+    }
+
+    .label_text {
+      line-height: $lh-2sm;
+      font-size: $fs-xs;
+      transform: translate(14px, 14px) scale(1);
+    }
+
+    .icon {
+      top: 12px;
+    }
+
+    .input {
+      line-height: $lh-2sm;
+      font-size: $fs-xs;
+      height: 48px;
+      padding: 22px 12px 8px;
+      &:before {
+        top: 12px;
+      }
+
+      &:hover,
+      &:focus {
+        + .border {
+          height: 56px;
+        }
+      }
+    }
+  }
+
+  &.dark_bg {
+    .label_text {
+      color: $white;
+    }
+
+    .input {
+      background-color: $white-06;
+      &:not(:placeholder-shown) {
+        color: $white;
+        + .border + .label_text {
+          color: $white-80;
+        }
+      }
+
+      &:focus {
+        background-color: $white;
+        color: $dark-blue-second;
+        + .border + .label_text {
+          color: $dark-green-80;
+        }
+      }
+    }
+
+    & > span {
+      color: $white-80;
+    }
+  }
+
+  &.hide_input_icon {
+    .input {
+      &[type="time"]::-webkit-calendar-picker-indicator,
+      &[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.disabled_class {
+    .input {
+      cursor: not-allowed;
+      color: $dark-blue-second-50;
+      background-color: $dark-green-16;
+      + .border + .label_text {
+        color: $dark-green-50;
+      }
+
+      + .border {
+        opacity: 0;
+      }
+
+      + .border + .label_text + .icon {
+        img {
+          opacity: 0.6;
+          &:last-child {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    &.dark_bg {
+      .input {
+        background-color: $white-16;
+        color: $white-50;
+        + .border + .label_text {
+          color: $white-50;
+        }
+
+        + .border + .label_text + .icon {
+          img {
+            display: flex;
+            &:last-child {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

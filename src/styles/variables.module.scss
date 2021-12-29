@@ -1,0 +1,71 @@
+
+
+/** Font weight **/
+$light: 300;
+$normal: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+
+/** Opacities **/
+$opacity-5: rgba(255, 255, 255, 0.5);
+$opacity-8: rgba(255, 255, 255, 0.8);
+$opacity-60: 0.6;
+$opacity-100: 1;
+
+/** Font size **/
+$fs-xxs: 13px;
+$fs-xs: 15px;
+$fs-sm: 17px;
+$fs-md: 24px;
+$fs-lg: 32px;
+$fs-xl: 40px;
+
+/** Line Height **/
+$lh-1sm: 16px;
+$lh-1lg: 18px;
+$lh-2sm: 20px;
+$lh-2lg: 24px;
+$lh-3sm: 32px;
+$lh-4sm: 40px;
+$lh-4lg: 44px;
+$lh-5lg: 56px;
+
+/** Font style **/
+$fnormal: normal;
+$Saira-light: "SairaLight";
+$Saira-regular: "SairaRegular";
+$Saira-medium: "SairaMedium";
+$Saira-semibold: "SairaSemiBold";
+$Saira-bold: "SairaBold";
+
+/** Global variables **/
+$sidebar-width: 344px;
+$sidebar-width-small: 320px;
+$border-radius: 32px;
+
+$header-height: 56px;
+$site-width: 1280px;
+$layout-padding: 1rem;
+
+$action-transition-duration: 0.25s;
+$action-transition-timing-function: ease;
+$sidebar-dark-bg: #232227;
+$sidebar-width-lg: 235px;
+$sidebar-width-mini: 185px;
+
+///////// NAVBAR ////////
+
+$navbar-default-bg: #fff;
+$navbar-height: 60px;
+$navbar-menu-color: #6C7383;
+$navbar-font-size: 1rem;
+$navbar-icon-font-size: .9375rem;
+$sidebar-width-icon: 70px;
+
+:export {
+  SairaRegular: $Saira-regular;
+  SairaSemiBold: $Saira-semibold;
+  FontSizeXS: $fs-xxs;
+  FontSizeMedium: $fs-sm;
+}

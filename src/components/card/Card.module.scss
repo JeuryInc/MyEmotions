@@ -1,0 +1,171 @@
+@import "../../styles/Colors.module";
+@import "../../styles/mixins/mediaQuery.module.scss";
+@import "../../styles/mixins/VendorPrefixes.module.scss";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 100%;
+  align-items: stretch;
+  border: none;
+  border-radius: 16px;
+  overflow-y: auto;
+  @include customScrollBar();
+
+  @include respond-above(md) {
+    padding: 20px;
+  }
+
+  &.colorWhite {
+    background-color: $white;
+  }
+
+  &.colorTurquoise {
+    background-color: $turquoise;
+  }
+
+  &.colorTurquoise12 {
+    background-color: $turquoise-12;
+  }
+
+  &.colorWhite06 {
+    background-color: $white-06;
+  }
+
+  &.colorLightGray50 {
+    background-color: $light-gray-50;
+  }
+
+  &.colorDarkGreen {
+    background-color: $dark-green;
+  }
+
+  &.colorDarkGreen06 {
+    background-color: $dark-green-06;
+  }
+
+  &.colorTransparent {
+    background-color: $transparent-bg;
+  }
+
+  &.colorBgGray {
+    background-color: $background-gray;
+  }
+
+  &.colorAux216 {
+    background-color: $aux-2-16;
+  }
+
+  &.colorWarning16 {
+    background-color: $warning-16;
+  }
+
+  &.colorError16 {
+    background-color: $error-16;
+  }
+
+  &.colorWarning12 {
+    background-color: $warning-12;
+  }
+
+  &.colorError12 {
+    background-color: $error-12;
+  }
+
+  &.colorWarning {
+    background-color: $warning;
+  }
+
+  &.colorError {
+    background-color: $error;
+  }
+
+  &.withBoxShadow {
+    box-shadow: 2px 2px 16px $dark-green-10;
+  }
+
+  &.withMobilePadding {
+    padding: 20px;
+  }
+
+  &.borderStyle_1 {
+    @include respond-above(md) {
+      border: 2px solid $dark-green-12;
+      border-radius: 12px;
+    }
+  }
+
+  &.borderStyle_2 {
+    @include respond-above(md) {
+      border: 2px solid $white-50;
+      border-radius: 10px;
+    }
+  }
+
+  &.borderStyle_3 {
+    @include respond-above(md) {
+      border: 2px solid $turquoise;
+      border-radius: 12px;
+    }
+  }
+
+  &.borderStyle_4 {
+    border: 2px solid $background-gray;
+    border-radius: 12px;
+  }
+
+  &.borderStyle_5 {
+    @include respond-above(md) {
+      @include transition(all, 200ms, ease-out, 0s);
+
+      &:after {
+        position: absolute;
+        display: flex;
+        content: "";
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background-color: $transparent-bg;
+        border: solid 2px $dark-green-24;
+        border-radius: 14px;
+        opacity: 0;
+        @include transition(all, 200ms, ease-out, 0s);
+      }
+
+      &:hover {
+        border-color: $transparent-bg;
+        background-color: $dark-green-06;
+
+        &:after {
+          opacity: 1;
+          top: -6px;
+          left: -6px;
+          right: -6px;
+          bottom: -6px;
+        }
+      }
+    }
+  }
+
+  &.borderStyle_6 {
+    border: 2px solid $dark-green-12;
+    border-radius: 12px;
+  }
+
+  &.borderStyle_7 {
+    border: 2px solid $turquoise;
+    border-radius: 10px;
+  }
+
+  &.borderStyle_8 {
+    border: 2px solid $error;
+    border-radius: 10px;
+  }
+
+  &.borderStyle_9 {
+    border: 2px solid $warning;
+    border-radius: 10px;
+  }
+}

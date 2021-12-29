@@ -1,0 +1,19 @@
+@import "variables.module.scss";
+@import "typography.module.scss";
+@import "colors.module.scss";
+@import "./mixins/vendorprefixes.module.scss";
+
+body {
+  margin: 0;
+  font-family: $Saira-light;
+  color: $dark-blue-90;
+  background: $background;
+  -webkit-text-size-adjust: 100%; //fix for iOS
+  scroll-behavior: smooth;
+  @include customScrollBarBody(8px);
+
+  * {
+    box-sizing: border-box;
+    position: relative;
+  }
+}

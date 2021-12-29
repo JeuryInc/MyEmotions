@@ -1,0 +1,85 @@
+@import "../../styles/variables.module.scss";
+@import "../../styles/typography.module.scss";
+@import "../../styles/colors.module";
+@import "../../styles/mixins/mediaQuery.module.scss";
+@import "../../styles/mixins/vendorprefixes.module.scss";
+
+$dot_size: 15px;
+$dot_size_small: 10px;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  .hollow_dots_spinner {
+    height: $dot_size;
+    width: calc(#{$dot_size} * 2 * 3);
+
+    * {
+      box-sizing: border-box;
+    }
+
+    @keyframes hollow-dots-spinner-animation {
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .dot {
+      width: $dot_size;
+      height: $dot_size;
+      margin: 0 calc(#{$dot_size} / 2);
+      border: calc(#{$dot_size} / 5) solid #0cccc6;
+      border-radius: 50%;
+      float: left;
+      transform: scale(0);
+      animation: hollow-dots-spinner-animation 1500ms ease infinite 0ms;
+
+      &:nth-child(1) {
+        animation-delay: calc(300ms * 1);
+      }
+
+      &:nth-child(2) {
+        animation-delay: calc(300ms * 2);
+      }
+
+      &:nth-child(3) {
+        animation-delay: calc(300ms * 3);
+      }
+    }
+  }
+
+  &.full_screen {
+    height: 75vh;
+
+    @include respond-above(md) {
+      height: 100vh;
+    }
+
+    @include respond-below(md, 2) {
+      height: 100vh;
+    }
+  }
+
+  &.small_dots {
+    .hollow_dots_spinner {
+      height: $dot_size_small;
+      width: calc(#{$dot_size_small} * 2 * 3);
+
+      .dot {
+        width: $dot_size_small;
+        height: $dot_size_small;
+        margin: 0 calc(#{$dot_size_small} / 2);
+        border: calc(#{$dot_size_small} / 5) solid #0cccc6;
+      }
+    }
+  }
+}

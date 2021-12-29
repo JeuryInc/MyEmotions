@@ -1,0 +1,11 @@
+@import "../../styles/mixins/mediaQuery.module.scss";
+
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: stretch;
+  margin-left: 33px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}

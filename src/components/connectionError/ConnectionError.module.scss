@@ -1,0 +1,23 @@
+@import "../../styles/Breakpoints.module.scss";
+@import "../../styles/mixins/mediaQuery.module.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  .row {
+    margin-top: 8px;
+
+    @include respond-below(md) {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+  .button {
+    margin-top: 16px;
+  }
+}

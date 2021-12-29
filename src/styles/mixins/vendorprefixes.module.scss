@@ -1,0 +1,143 @@
+@import "../colors.module.scss";
+
+@mixin transition($selector, $time, $type, $delay) {
+  -webkit-transition: $selector $time $type $delay;
+  -moz-transition: $selector $time $type $delay;
+  -ms-transition: $selector $time $type $delay;
+  -o-transition: $selector $time $type $delay;
+  transition: $selector $time $type $delay;
+}
+
+@mixin transition_header($settings) {
+  -webkit-transition: $settings;
+  -moz-transition: $settings;
+  -ms-transition: $settings;
+  -o-transition: $settings;
+  transition: $settings;
+}
+
+// Placeholder
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content
+	}
+	&:-moz-placeholder {
+		@content
+	}
+	&::-moz-placeholder {
+		@content
+	}
+	&:-ms-input-placeholder {
+		@content
+	}
+} 
+
+@function map-multi-transition($selectors, $time, $type, $delay) {
+  $new-list: ();
+  @each $selector in $selectors {
+    $transition: $selector $time $type $delay;
+    $new-list: append($new-list, $transition, $separator: "comma");
+  }
+  @return $new-list;
+}
+
+@mixin multi-transition($selectors, $time, $type, $delay) {
+  $transitions: map-multi-transition($selectors, $time, $type, $delay);
+
+  -webkit-transition: $transitions;
+  -moz-transition: $transitions;
+  -ms-transition: $transitions;
+  -o-transition: $transitions;
+  transition: $transitions;
+}
+
+@mixin transform-translate-x($value) {
+  -webkit-transform: translate3d($value, 0, 0);
+  -moz-transform: translate3d($value, 0, 0);
+  -ms-transform: translate3d($value, 0, 0);
+  -o-transform: translate3d($value, 0, 0);
+  transform: translate3d($value, 0, 0);
+}
+
+@mixin appearance($appearance) {
+  -webkit-appearance: $appearance;
+  -moz-appearance: $appearance;
+  -ms-appearance: $appearance;
+  -o-appearance: $appearance;
+  appearance: $appearance;
+}
+
+@mixin hideScrollBar() {
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin customScrollBar($width: 4px) {
+  scrollbar-width: thin; /* Firefox */
+
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+    background: $transparent-bg;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $transparent-bg;
+    border-radius: $width;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: $dark-gray-50;
+    }
+  }
+}
+
+@mixin customScrollBarBody($width) {
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $transparent-bg;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $dark-gray-50;
+    border-radius: $width;
+  }
+}
+
+@mixin fadeIn() {
+  animation: fadeIn linear 0.2s;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin fadeOut() {
+  animation: fadeOut linear 0.2s;
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

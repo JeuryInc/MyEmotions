@@ -1,0 +1,22 @@
+@import "../../../styles/Variables.module.scss";
+@import "../../../styles/Colors.module.scss";
+@import "../../../styles/mixins/mediaQuery.module.scss";
+
+.main_container {
+  display: flex;
+  flex: 0 0 100%;
+  max-width: 100%;
+  min-height: 100vh;
+   
+  .body_container {
+    display: flex;
+    flex: 1 0 0;
+    max-width: 100%;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .content {
+      flex: 1 0 0;
+    }
+  }
+}

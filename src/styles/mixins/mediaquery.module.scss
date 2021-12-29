@@ -1,0 +1,154 @@
+@import "../breakPoints.module.scss";
+
+// Respond above.
+// $orientation: 1 = portrait, 2 = landscape
+@mixin respond-above($breakpoint, $orientation: 0) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // If the media query should consider portrait in mobile
+    @if $orientation == 1 {
+      // Write the media query.
+      @media (min-width: $breakpoint-value) and (orientation: portrait) {
+        @content;
+      }
+
+      // If the media query should consider landscape in mobile
+    } @else if $orientation == 2 {
+      // Write the media query.
+      @media (min-width: $breakpoint-value) and (orientation: landscape) {
+        @content;
+      }
+
+      // If the media query no consider landscape or portrait in mobile
+    } @else {
+      // Write the media query.
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin respond-below($breakpoint, $orientation: 0) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // If the media query should consider portrait in mobile
+    @if $orientation == 1 {
+      // Write the media query.
+      @media (max-width: $breakpoint-value - 1) and (orientation: portrait) {
+        @content;
+      }
+
+      // If the media query should consider landscape in mobile
+    } @else if $orientation == 2 {
+      // Write the media query.
+      @media (max-width: $breakpoint-value - 1) and (orientation: landscape) {
+        @content;
+      }
+
+      // If the media query no consider landscape or portrait in mobile
+    } @else {
+      // Write the media query.
+      @media (max-width: ($breakpoint-value - 1)) {
+        @content;
+      }
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin respond-between($lower, $upper, $orientation: 0) {
+  // If both the lower and upper breakpoints exist in the map.
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    // Get the lower and upper breakpoints.
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    // If the media query should consider portrait in mobile
+    @if $orientation == 1 {
+      // Write the media query.
+      @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) and (orientation: portrait) {
+        @content;
+      }
+
+      // If the media query should consider landscape in mobile
+    } @else if $orientation == 2 {
+      // Write the media query.
+      @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) and (orientation: landscape) {
+        @content;
+      }
+
+      // If the media query no consider landscape or portrait in mobile
+    } @else {
+      // Write the media query.
+      @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+        @content;
+      }
+    }
+
+    // If one or both of the breakpoints don't exist.
+  } @else {
+    // If lower breakpoint is invalid.
+    @if (map-has-key($breakpoints, $lower) == false) {
+      // Log a warning.
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+
+    // If upper breakpoint is invalid.
+    @if (map-has-key($breakpoints, $upper) == false) {
+      // Log a warning.
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
+}
+
+// Mixins for heights
+@mixin respond-below-height($breakpoint, $orientation: 0) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // If the media query should consider portrait in mobile
+    @if $orientation == 1 {
+      // Write the media query.
+      @media (max-height: $breakpoint-value - 1) and (orientation: portrait) {
+        @content;
+      }
+
+      // If the media query should consider landscape in mobile
+    } @else if $orientation == 2 {
+      // Write the media query.
+      @media (max-height: $breakpoint-value - 1) and (orientation: landscape) {
+        @content;
+      }
+
+      // If the media query no consider landscape or portrait in mobile
+    } @else {
+      // Write the media query.
+      @media (max-height: ($breakpoint-value - 1)) {
+        @content;
+      }
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}

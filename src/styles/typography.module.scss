@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "SairaLight";
+    font-weight: $light;
+    font-style: $fnormal;
+    src: url("../assets/fonts/Saira-Light.ttf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "SairaRegular";
+    font-weight: $normal;
+    font-style: $fnormal;
+    src: url("../assets/fonts/Saira-Regular.ttf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "SairaMedium";
+    font-weight: $medium;
+    font-style: $fnormal;
+    src: url("../assets/fonts/Saira-Medium.ttf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "SairaSemiBold";
+    font-weight: $semibold;
+    font-style: $fnormal;
+    src: url("../assets/fonts/Saira-SemiBold.ttf") format("opentype");
+  }
+  
+  @font-face {
+    font-family: "SairaBold";
+    font-weight: $bold;
+    font-style: $fnormal;
+    src: url("../assets/fonts/Saira-Bold.ttf") format("opentype");
+  }
+  
