@@ -1,13 +1,17 @@
+import { useParams } from "react-router-dom";
 import MainLayout from "../../components/layout/mainLayout/MainLayout";
-import Loading from "../../components/loading/Loading";
-import styles from "./Home.module.scss";
-import { useGetEmotionsQuery } from "../../services/EmotionsApi";
+import styles from "./Tag.module.scss";
+import { useGetEmotionsByTagQuery } from '../../services/EmotionsApi';
 import { isValidArray, splitStringToArray } from "../../utils/Helper";
 import Card from "../../components/card/Card";
-import moment from 'moment/moment.js'
+import moment from "moment";
+import Loading from "../../components/loading/Loading";
 
-const Home = () => {
-    const { data, isError, isLoading } = useGetEmotionsQuery({});
+const Tag = () => {
+
+    let { name } = useParams();
+
+    const { data, isError, isLoading } = useGetEmotionsByTagQuery({ tag: name });
 
     const _data = data as Array<any>;
 
@@ -34,16 +38,32 @@ const Home = () => {
 
     return (
         <MainLayout>
-            {isLoading ? (
-                <Loading
-                    fullScreen={false}
-                    quantityDot={3}
-                    className={styles.loading}
-                />
-            ) : <>{_html}</>
-            } 
+            <div>
+                <header className={`${styles.crayons_card} ${styles.branded}`}>
+                    <div className="flex">
+                        <div className="flex flex-col w-100 justify-center">
+                            <div className="flex justify-between items-center">
+                                <h1 className="crayons-title">
+                                    <span className="opacity-50">#</span>
+                                    {name}
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div>
+                    {isLoading ? (
+                        <Loading
+                            fullScreen={false}
+                            quantityDot={3}
+                            className={styles.loading}
+                        />
+                    ) : <>{_html}</>
+                    }
+                </div>
+            </div>
         </MainLayout>
     )
 }
 
-export default Home;
+export default Tag;

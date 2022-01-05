@@ -1,4 +1,4 @@
-@import "../../styles/mixins/mediaQuery.module.scss";
+@import "../../styles/colors.module";
 
 .container {
   display: flex;
@@ -7,5 +7,38 @@
   margin-left: 33px;
   margin-top: 16px;
   flex-wrap: wrap;
-  align-content: flex-start;
+  align-items: center;
+  margin-top: 170px;
+
+  h1 {
+    color: $error;
+    font-size: 156px;
+    letter-spacing: 10px;
+    margin: 0.025em 0;
+    animation: spooky 2s alternate infinite linear;
+    color: $info;
+    display: inline-block;
+
+    @media (max-width: 30rem) {
+      font-size: 8.5rem;
+    }
+  }
+
+  p {
+    font-size: 22px;
+  }
+
+  button{
+    margin-top: 55px;
+  }
+
+  @keyframes spooky {
+    from {
+      transform: translatey(0.15em) scaley(0.95);
+    }
+
+    to {
+      transform: translatey(-0.15em);
+    }
+  }
 }

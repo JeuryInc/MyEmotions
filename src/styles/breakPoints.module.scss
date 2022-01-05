@@ -1,38 +1,17 @@
-/** Break Points **/
-
-$n_xs: 375;
-$n_sm: 600;
-$n_sm_md: 768;
-$n_md: 960;
-$n_lg: 1200;
-$n_xl: 1440;
-$n_xxl: 1920;
-
+ 
 /** Scss variables **/
 $xs: 375px;
 $sm: 600px;
-$sm_md: 768px;
-$md: 960px;
-$lg: 1200px;
-$xl: 1440px;
-$xxl: 1920px;
+$md: 990px;
 
 $breakpoints: (
   xs: $xs,
   sm: $sm,
-  sm_md: $sm_md,
   md: $md,
-  lg: $lg,
-  xl: $xl,
-  xxl: $xxl,
 );
-
+ 
 :export {
-  xs: $n_xs;
-  sm: $n_sm;
-  sm_md: $n_sm_md;
-  md: $n_md;
-  lg: $n_lg;
-  xl: $n_xl;
-  xxl: $n_xxl;
+  xs: $xs;
+  sm: $sm;
+  md: $md;
 }

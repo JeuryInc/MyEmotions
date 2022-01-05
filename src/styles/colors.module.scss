@@ -94,60 +94,7 @@ $violet-20: #9dacff33;
 
 /** Notifications **/
 $error: #f87575;
-$error-12: #f875751f;
-$error-16: #f8757529;
-$error-20: #f8757533;
-$error-32: #f8757552;
-$error-50: #f8757580;
 $info: #bbbbbb;
 $success: #52df00;
-$warning: #ffc145;
-$warning-12: #ffc1451f;
-$warning-16: #ffc14529;
-$warning-20: #ffc14533;
-$warning-32: #ffc14552;
-$warning-50: #ffc14580;
-
-:export {
-  white: $white;
-  white16: $white-16;
-  white50: $white-50;
-  turquoise: $turquoise;
-  turquoise12: $turquoise-12;
-  turquoise20: $turquoise-20;
-  turquoise50: $turquoise-50;
-  turquoise60: $turquoise-60;
-  darkBlue: $dark-green-80;
-  darkBlue80: $dark-blue-80;
-  darkBlue8012: $dark-blue-80-12;
-  darkBlue8020: $dark-blue-80-20;
-  darkBlueSecond: $dark-blue-second;
-  violet: $violet;
-  violet12: $violet-12;
-  violet20: $violet-20;
-  error: $error;
-  error12: $error-12;
-  error20: $error-20;
-  warning: $warning;
-  warning12: $warning-12;
-  warning20: $warning-20;
-  aux2: $aux-2;
-  aux2_12: $aux-2-12;
-  aux2_20: $aux-2-20;
-  progressGreen: $progress-green;
-  progressGreen12: $progress-green-12;
-  progressGreen20: $progress-green-20;
-  darkGreen: $dark-green;
-  darkGreen06: $dark-green-06;
-  darkGreen12: $dark-green-12;
-  darkGreen20: $dark-green-20;
-  darkGreen80: $dark-green-80;
-  secAux: $sec-aux;
-  secAux12: $sec-aux-12;
-  secAux20: $sec-aux-20;
-  lightGray: $light-gray;
-  lightGray12: $light-gray-12;
-  lightGray20: $light-gray-20;
-  backgroundGray: $background-gray;
-  transparent: $transparent-bg;
-}
+$warning: #ffc145; 
+ 

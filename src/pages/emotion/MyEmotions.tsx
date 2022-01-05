@@ -1,13 +1,13 @@
+import styles from "./MyEmotions.module.scss";
 import MainLayout from "../../components/layout/mainLayout/MainLayout";
-import Loading from "../../components/loading/Loading";
-import styles from "./Home.module.scss";
-import { useGetEmotionsQuery } from "../../services/EmotionsApi";
+import { useGetEmotionsByUserQuery } from '../../services/EmotionsApi';
 import { isValidArray, splitStringToArray } from "../../utils/Helper";
+import moment from "moment";
 import Card from "../../components/card/Card";
-import moment from 'moment/moment.js'
+import Loading from "../../components/loading/Loading";
 
-const Home = () => {
-    const { data, isError, isLoading } = useGetEmotionsQuery({});
+export const MyEmotions = () => {
+    const { data, isLoading } = useGetEmotionsByUserQuery({});
 
     const _data = data as Array<any>;
 
@@ -33,17 +33,22 @@ const Home = () => {
         }) : <></>;
 
     return (
-        <MainLayout>
-            {isLoading ? (
-                <Loading
-                    fullScreen={false}
-                    quantityDot={3}
-                    className={styles.loading}
-                />
-            ) : <>{_html}</>
-            } 
-        </MainLayout>
-    )
-}
+        <MainLayout
+        >
+            <div className={styles.container}>
+                {isLoading ? (
+                    <Loading
+                        fullScreen={false}
+                        quantityDot={3}
+                        className={styles.loading}
+                    />
+                ) : <>{_html}</>
+                }
 
-export default Home;
+            </div>
+        </MainLayout>
+    );
+};
+
+
+export default MyEmotions;

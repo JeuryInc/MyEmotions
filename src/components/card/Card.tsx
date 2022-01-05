@@ -24,7 +24,7 @@ import styles from "./Card.module.scss";
  * <Card mobilePadding={false} /> // setting the default padding 20px from mobile
  * @param {function} onClick - The onClick is a function to handle the on click
  */
-export default function Card({ boxShadow, children, color, onClick, className } : ICardProps) {
+function Card({ boxShadow, children, color, onClick, className } : ICardProps) {
   let colorClass = styles.colorWhite;
 
   if (color === "turquoise") {
@@ -66,13 +66,16 @@ export default function Card({ boxShadow, children, color, onClick, className } 
     boxShadowClass = styles.withBoxShadow;
   } 
 
-  const classNames = `${
+  const classNames = `${className ?? ""} ${
     styles.card
   } ${colorClass} ${boxShadowClass}`;
-
+ 
   return (
     <div className={classNames} onClick={onClick}>
       {children}
     </div>
   );
 }
+
+
+export default Card; 

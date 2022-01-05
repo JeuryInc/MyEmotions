@@ -1,5 +1,5 @@
 export const ROOT = "/";
-export const HOME = "/home";
+export const TAG = "/t";
 export const EMOTION = "/emotion";
 export const LOGIN = "/login";
 export const REGISTER = "/register";

@@ -1,7 +1,7 @@
 import IInputProps from "../../interfaces/IInputProps"; 
 import styles from "./Input.module.scss";
 
-function Input({id, name,  value = "",  disabled, dimensions, divClassName, inputMode, required, label , type, register, validation, errorText}: IInputProps) {
+function Input({id, name,  value = "",  disabled, dimensions, inputMode, required, label , type, register, validation, errorText, className}: IInputProps) {
     
   let divClassNames = styles.own_div;
   if (dimensions === "small") {
@@ -13,7 +13,7 @@ function Input({id, name,  value = "",  disabled, dimensions, divClassName, inpu
   }
 
   return (
-    <div className={`${divClassName ?? ""} ${divClassNames}`}>  
+    <div className={`${className ?? ""} ${divClassNames}`}>  
     {!!errorText && !disabled ? (
         <span className={styles.error}>{errorText}</span>
       ) : null}

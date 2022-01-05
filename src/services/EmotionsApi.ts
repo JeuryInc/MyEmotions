@@ -8,7 +8,18 @@ const headers = () => ({
 export const emotionApi = createApi({
   reducerPath: "emotionApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://localhost:5001" }),
-  endpoints: (builder) => ({
+  endpoints: (builder) => ({ 
+    getEmotions: builder.query({
+      query: () => {
+        return {
+          url: "/api/Emotion/GetEmotions",
+          method: "GET",
+          headers: headers(),
+        };
+      },
+      transformResponse: (response) => response,
+      keepUnusedDataFor: 120,
+    }),
     createEmotion: builder.mutation({
       query: (body) => ({
         url: "/api/Emotion/create",
@@ -26,10 +37,47 @@ export const emotionApi = createApi({
       }),
       transformResponse: (response) => response
     }),
+    getEmotionsByUser: builder.query({
+      query: () => {
+        return {
+          url: "/api/Emotion/GetEmotionsByUser",
+          method: "GET",
+          headers: headers(),
+        };
+      },
+      transformResponse: (response) => response,
+      keepUnusedDataFor: 120,
+    }),
+    getEmotionsByTag: builder.query({
+      query: ({ tag }) => {
+        return {
+          url: `/api/Emotion/GetEmotionsByTag/${tag}`,
+          method: "GET",
+          headers: headers(),
+        };
+      },
+      transformResponse: (response) => response,
+      keepUnusedDataFor: 120,
+    }), 
+    getTags: builder.query({
+      query: () => {
+        return {
+          url: "/api/Emotion/GetTags",
+          method: "GET",
+          headers: headers(),
+        };
+      },
+      transformResponse: (response) => response,
+      keepUnusedDataFor: 120,
+    }),
   }),
 });
 
 export const {
+  useGetEmotionsQuery,
   useCreateEmotionMutation,
-  useGetEmotionDetailsMutation
+  useGetEmotionDetailsMutation,
+  useGetTagsQuery,
+  useGetEmotionsByUserQuery,
+  useGetEmotionsByTagQuery
 } = emotionApi;

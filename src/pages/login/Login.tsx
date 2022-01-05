@@ -26,8 +26,7 @@ const Login = () => {
                         toast.error(response?.error?.data.password, { autoClose: 3000 })
                     } else if ('username' in response?.error?.data) {
                         toast.error(response?.error?.data.username, { autoClose: 3000 })
-                    } else {
-                        console.log(response);
+                    } else { 
                         localStorage.setItem('token', response.token)
                         localStorage.setItem(
                             'tokenExpirationTime',
@@ -46,9 +45,7 @@ const Login = () => {
         <LoginLayout>
             <div>
                 <h2 className={styles.title}>Welcome to My Emotions</h2>
-
                 <div className={styles.container} id="container">
-
                     <div className={`${styles.form_container} ${styles.sign_in_container}`}>
                         <form onSubmit={handleSubmit(onSubmit)} noValidate>
                             <h1>Sign in</h1>

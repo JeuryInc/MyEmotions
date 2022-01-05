@@ -46,8 +46,7 @@ const Register = () => {
                                 toast.error(passwordError[index], { autoClose: 3000 });
                             }
                         }
-                    } else {
-                        console.log(response);
+                    } else { 
                         localStorage.setItem('token', response?.data?.token)
                         localStorage.setItem(
                             'tokenExpirationTime',

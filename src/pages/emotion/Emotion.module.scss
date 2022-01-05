@@ -1,0 +1,29 @@
+@import "../../styles/colors.module";
+@import "node_modules/@pathofdev/react-tag-input/src/styles/index.scss";
+
+.container{
+    .subject{
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .publicemotion{
+        float: right;
+    }
+
+    .wrapper_editor{
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .textbox_editor{
+        background-color: white;
+        caret-color: $black; 
+        padding: 20px;
+        height: 300px;
+    } 
+    
+    .btn_create_emotion{
+        margin-top: 40px;
+    }
+}

@@ -6,9 +6,9 @@ export default interface IInputProps {
   validation? : any,
   required?: boolean;
   icon?: string;
-  divClassName?: string;
   errorText?: string;
   helperText?: string;
+  className?: string;
   label: string;
   value?: string;
   inputMode?: "search" | "text" | "password" | "tel" | "url" | "email" | "numeric" | "decimal";

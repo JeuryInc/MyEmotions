@@ -13,12 +13,8 @@ const MainLayout = ({ children }: IHomeProps) => {
         <div className="main-panel">
           <div className="content-wrapper">
             <div className="row">
-              <div className="col-md-12 grid-margin">
-                <div className="row">
-                  <div className="col-12 col-xl-8 mb-4 mb-xl-0">
-                    <div className={styles.content}>{children}</div>
-                  </div>
-                </div>
+              <div className="col-md-12 grid-margin"> 
+                  <div className={styles.content}>{children}</div> 
               </div>
             </div>
           </div>

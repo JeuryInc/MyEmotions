@@ -1,0 +1,68 @@
+@import "../../styles/variables.module.scss";
+@import "../../styles/colors.module";
+@import "../../styles/mixins/mediaquery.module.scss";
+@import "../../styles/mixins/vendorPrefixes.module.scss";
+
+.emotion_card {
+    margin-bottom: 20px;
+    .owner_container {
+        display: flex;
+        .img_owner {
+            height: 60px;
+            width: 60px;
+            background-color: $dark-green;
+            border-radius: 5px;
+        }
+        .owner_info {
+            margin-left: 15px;
+            padding-top: 10px;
+            .ownerUsername {
+                font-size: bold;
+                font-family: $Saira-medium;
+                font-size: 16px;
+                margin-top: 10px;
+                margin: 0;
+            }
+            .publishTime {
+            }
+        }
+    }
+    .emotion_container {
+        margin-top: 25px;
+
+        .tag {
+            background: $dark-green;
+            display: inline;
+            padding: 0.1em 0.6em 0.1em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 4px;
+            margin-left: 0.35em;
+            cursor: pointer;
+        }
+        .tag:first-child(),
+        .title + .tag {
+            margin-left: 0;
+        }
+        .title {
+            font-size: 34px;
+            font-family: $Saira-bold;
+            font-weight: 900;
+        }
+    }
+
+    .loading {
+        width: 100%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        padding-left: 0;
+    }
+}
