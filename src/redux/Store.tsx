@@ -1,26 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { authApi } from "../services/AuthApi";
-import { emotionApi } from "../services/EmotionsApi";
-import modalReducer from "./slices/ModalSlice";
+import { emotionApi } from "../services/EmotionsApi"; 
 import menuReducer from "./slices/MenuSlice";
 
 const store = configureStore({
-  reducer: {
-    modalHandler: modalReducer,
+  reducer: { 
     menuOpener: menuReducer,
     [authApi.reducerPath]: authApi.reducer,
     [emotionApi.reducerPath]: emotionApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [
-        "modalHandler/setModal",
-        "modalHandler/showModal",
-        "modalHandler/hideModal",
-        "modalHandler/resetModal"
-      ],
-    },
+  getDefaultMiddleware({ 
   })
       .concat(authApi.middleware)
       .concat(emotionApi.middleware)

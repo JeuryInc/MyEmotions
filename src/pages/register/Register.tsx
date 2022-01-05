@@ -5,19 +5,15 @@ import styles from "./Register.module.scss";
 import { useRegisterUserMutation } from "../../services/AuthApi";
 import Button from "../../components/button/Button";
 import { useForm } from "react-hook-form";
-import { showModal } from "../../utils/Modal";
-import Input from "../../components/input/Input";
-import { useAppDispatch } from '../../utils/hooks';
+import Input from "../../components/input/Input"; 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const { register, handleSubmit,
-        formState: { errors }} = useForm();
+        formState: { errors } } = useForm();
 
-    const navigate = useNavigate();
-
-    const dispatch = useAppDispatch();
+    const navigate = useNavigate(); 
 
     toast.configure();
 
@@ -46,7 +42,7 @@ const Register = () => {
                                 toast.error(passwordError[index], { autoClose: 3000 });
                             }
                         }
-                    } else { 
+                    } else {
                         localStorage.setItem('token', response?.data?.token)
                         localStorage.setItem(
                             'tokenExpirationTime',
@@ -60,11 +56,9 @@ const Register = () => {
                     }
                 })
                 .catch((error: any) => {
-                    showModal(
-                        dispatch,
-                        "titulo error",
-                        "error"
-                    );
+
+                    toast.error("Something bad happenned", { autoClose: 3000 });
+
                 });
         }
     };
