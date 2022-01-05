@@ -3,6 +3,8 @@ import { useAppSelector } from '../../../../utils/hooks';
 import { isValidArray } from "../../../../utils/Helper";
 import Loading from '../../../loading/Loading';
 import styles from "./Sidebar.module.scss";
+import { signOut, isLogged } from '../../../../utils/Auth'
+import { useState } from 'react';
 
 const Sidebar = () => {
 
@@ -11,6 +13,8 @@ const Sidebar = () => {
   const { data, isLoading } = useGetTagsQuery({});
 
   const _data = data as Array<any>;
+  
+  const [logged] = useState(isLogged());
 
   let _html = isValidArray(_data) ? _data.map(
     (emotion) => {
@@ -24,22 +28,26 @@ const Sidebar = () => {
 
   return (
     <nav className={`sidebar sidebar-offcanvas ${menuOpened ? 'active' : ""}`} id="sidebar">
-      <h3 className="crayons-subtitle-3">Welcome, X!</h3>
-      <div className="sidebar-nav-element" id="default-sidebar-element-javascript" >
-        <a className="c-link c-link--block" href='/emotion'>
-          Create new emotion
-        </a>
-      </div>
-      <div className="sidebar-nav-element" id="default-sidebar-element-javascript" >
-        <a className="c-link c-link--block" href='/emotion/list'>
-          My Emotions
-        </a>
-      </div>
-      <div className="sidebar-nav-element" id="default-sidebar-element-javascript" >
-        <a className="c-link c-link--block" href='/emotion/list'>
-          Log out
-        </a>
-      </div>
+      {logged ?
+        <>
+          <h3 className="crayons-subtitle-3">Welcome, X!</h3>
+          <div className="sidebar-nav-element" id="default-sidebar-element-javascript" >
+            <a className="c-link c-link--block" href='/emotion'>
+              Create new emotion
+            </a>
+          </div>
+          <div className="sidebar-nav-element" id="default-sidebar-element-javascript" >
+            <a className="c-link c-link--block" href='/emotion/list'>
+              My Emotions
+            </a>
+          </div>
+          <div className="sidebar-nav-element" id="default-sidebar-element-javascript" >
+            <a className="c-link c-link--block" onClick={signOut}>
+              Log out
+            </a>
+          </div>
+        </> : <></>}
+
       <h3 className="crayons-subtitle-3 populartag_title">Popular Tags</h3>
       <div id="sidebar-nav-default-tags" className="overflow-y-auto" >
         {isLoading ? <Loading

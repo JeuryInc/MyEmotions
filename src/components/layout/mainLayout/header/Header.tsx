@@ -34,25 +34,14 @@ const Header = () => {
     </div>
     <div className="navbar-menu-wrapper d-flex align-items-center justify-content-end">
       <ul className="navbar-nav navbar-nav-right">
-        {logged ?
-          <> <li className="nav-item nav-profile dropdown">
-            <a className="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src={Setting} className="imgSetting" alt="profile" />
-            </a>
-            <div className="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a className="dropdown-item" onClick={signOut}>
-                <i className="ti-power-off text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-            {
-              isTable ? <li className="nav-item nav-profile dropdown">
-                <img src={Menu} onClick={handleOnClicked} className="imgMenu" alt="menu" />
-              </li> : <></>}
-          </>
-          :
-          <Button onClicked={logIn} text="Login" />}
+        {!logged ? <li className="nav-item nav-profile dropdown">
+          <Button onClicked={logIn} text="Login" />
+        </li> : <></>}
+        {
+          isTable ? <li className="nav-item nav-profile dropdown">
+            <img src={Menu} onClick={handleOnClicked} className="imgMenu" alt="menu" />
+          </li> : <></>}
+
       </ul>
     </div>
   </nav>);
