@@ -24,6 +24,12 @@
     padding-left: 0;
 }
 
+.tag_container {
+    height: 63px;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+
 .emotion_card {
     margin-bottom: 20px;
     .owner_container {
@@ -43,11 +49,10 @@
                 font-size: 16px;
                 margin-top: 10px;
                 margin: 0;
-            }
-            .publishTime {
-            }
+            } 
         }
     }
+    
     .emotion_container {
         margin-top: 25px;
 
@@ -70,10 +75,16 @@
         .title + .tag {
             margin-left: 0;
         }
+
+        a:hover {         
+            text-decoration: none;
+        }
+
         .title {
             font-size: 34px;
             font-family: $Saira-bold;
-            font-weight: 900;
+            font-weight: 900;  
+            color: #000;    
         }
     }
 

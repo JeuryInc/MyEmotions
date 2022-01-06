@@ -5,6 +5,8 @@ import { useGetEmotionsQuery } from "../../services/EmotionsApi";
 import { isValidArray, splitStringToArray } from "../../utils/Helper";
 import Card from "../../components/card/Card";
 import moment from 'moment/moment.js'
+import { Link } from "react-router-dom";
+import { EMOTION_DETAILS } from "../../navigation/Routes";
 
 const Home = () => {
     const { data, isError, isLoading } = useGetEmotionsQuery({});
@@ -23,7 +25,9 @@ const Home = () => {
                         </div>
                     </div>
                     <div className={styles.emotion_container}>
-                        <h1 className={styles.title}>{emotion.title}</h1>
+                        <Link to={`${EMOTION_DETAILS}/${emotion.id}`} className={styles.title}>
+                            <h1 className={styles.title}>{emotion.title}</h1>
+                        </Link>
                         {splitStringToArray(emotion.tags[0]).map(element => {
                             return <a href={`/t/${element.replace('#', '')}`}><span key={element} className={styles.tag}>{element}</span></a>
                         })}
@@ -41,7 +45,7 @@ const Home = () => {
                     className={styles.loading}
                 />
             ) : <>{_html}</>
-            } 
+            }
         </MainLayout>
     )
 }

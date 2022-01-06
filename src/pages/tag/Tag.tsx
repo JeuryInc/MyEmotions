@@ -6,6 +6,8 @@ import { isValidArray, splitStringToArray } from "../../utils/Helper";
 import Card from "../../components/card/Card";
 import moment from "moment";
 import Loading from "../../components/loading/Loading";
+import { Link } from "react-router-dom";
+import { EMOTION_DETAILS } from "../../navigation/Routes";
 
 const Tag = () => {
 
@@ -17,6 +19,7 @@ const Tag = () => {
 
     var _html = isValidArray(_data) ? _data.map(
         (emotion) => {
+            console.log(emotion)
             return <Card boxShadow={true} className={styles.emotion_card} key={emotion.id}>
                 <div>
                     <div className={styles.owner_container}>
@@ -27,9 +30,11 @@ const Tag = () => {
                         </div>
                     </div>
                     <div className={styles.emotion_container}>
-                        <h1 className={styles.title}>{emotion.title}</h1>
+                        <Link to={`${EMOTION_DETAILS}/${emotion.id}`} className={styles.title}>
+                            <h1>{emotion.title}</h1>
+                        </Link>
                         {splitStringToArray(emotion.tags[0]).map(element => {
-                            return <a href={`/t/${element.replace('#', '')}`}><span key={element} className={styles.tag}>{element}</span></a>
+                            return <a href={`/t/${element.replace('#', '')}`} key={element}><span className={styles.tag}>{element}</span></a>
                         })}
                     </div>
                 </div>
@@ -42,7 +47,7 @@ const Tag = () => {
                 <header className={`${styles.crayons_card} ${styles.branded}`}>
                     <div className="flex">
                         <div className="flex flex-col w-100 justify-center">
-                            <div className="flex justify-between items-center">
+                            <div className={`${styles.tag_container}`}>
                                 <h1 className="crayons-title">
                                     <span className="opacity-50">#</span>
                                     {name}
@@ -55,7 +60,6 @@ const Tag = () => {
                     {isLoading ? (
                         <Loading
                             fullScreen={false}
-                            quantityDot={3}
                             className={styles.loading}
                         />
                     ) : <>{_html}</>

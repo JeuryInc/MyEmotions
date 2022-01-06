@@ -11,8 +11,16 @@ import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import { useCreateEmotionMutation } from "../../services/EmotionsApi";
 import { convertToHTML } from 'draft-convert';
+import { useNavigate } from "react-router-dom";
+import { EMOTION_DETAILS } from "../../navigation/Routes";
 
 const Emotion = () => {
+    const navigate = useNavigate();
+
+    const redirect_emotion_detail = (id: string) => {
+        navigate(`${EMOTION_DETAILS}/${id}`);
+    };
+
     const [editorState, setEditorState] = useState(
         () => EditorState.createEmpty(),
     );
@@ -33,13 +41,12 @@ const Emotion = () => {
         model.content = convertToHTML(editorState.getCurrentContent());
         model.isPublic = isPublic;
 
-        console.log(model);
-
         if (!isError && !isLoading) {
             createEmotion(model)
                 .then((response: any) => {
-                    if(response?.data){ 
-                        toast.success("Emotion registred", { autoClose: 3000 });
+                    if (response?.data) {
+                        toast.success("Emotion registred", { autoClose: 3000 }); 
+                        redirect_emotion_detail(response?.data?.id);
                     }
                 })
                 .catch((error: any) => {
@@ -88,7 +95,7 @@ const Emotion = () => {
                             if (!anyData) {
                                 alert("Please enter at leats one field");
                             }
-                            // Return boolean to indicate validity
+                            
                             return anyData;
                         }}
                     />

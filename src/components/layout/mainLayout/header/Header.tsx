@@ -2,9 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { LOGIN } from "../../../../navigation/Routes";
 import Button from "../../../button/Button";
 import Logo from "../../../../assets/logo.png";
-import Setting from "../../../../assets/setting.png";
 import Menu from "../../../../assets/menu.png";
-import { signOut, isLogged } from '../../../../utils/Auth'
+import {  isLogged } from '../../../../utils/Auth'
 import { useState } from "react";
 import { useAppDispatch } from "../../../../utils/hooks";
 import { toggleSidebar } from "../../../../redux/slices/MenuSlice";

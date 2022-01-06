@@ -28,15 +28,18 @@ export const emotionApi = createApi({
         body,
       }),
       transformResponse: (response) => response
-    }),
-    getEmotionDetails: builder.mutation({
-      query: ({ id }) => ({
-        url:  `/api/Emotion/GetEmotionDetail?id=${id}`,
-        method: "GET",
-        headers: headers(),
-      }),
-      transformResponse: (response) => response
-    }),
+    }), 
+    getEmotionDetails: builder.query({
+      query: ({ emotionId }) => {
+        return {
+          url:  `/api/Emotion/GetEmotionDetail/${emotionId}`,
+          method: "GET",
+          headers: headers(),
+        };
+      },
+      transformResponse: (response) => response,
+      keepUnusedDataFor: 120,
+    }),    
     getEmotionsByUser: builder.query({
       query: () => {
         return {
@@ -76,7 +79,7 @@ export const emotionApi = createApi({
 export const {
   useGetEmotionsQuery,
   useCreateEmotionMutation,
-  useGetEmotionDetailsMutation,
+  useGetEmotionDetailsQuery,
   useGetTagsQuery,
   useGetEmotionsByUserQuery,
   useGetEmotionsByTagQuery
