@@ -30,8 +30,8 @@ const Tag = () => {
                         </div>
                     </div>
                     <div className={styles.emotion_container}>
-                        <Link to={`${EMOTION_DETAILS}/${emotion.id}`} className={styles.title}>
-                            <h1>{emotion.title}</h1>
+                        <Link to={`${EMOTION_DETAILS}/${emotion.id}`} >
+                            <h1 className={styles.title}>{emotion.title}</h1>
                         </Link>
                         {splitStringToArray(emotion.tags[0]).map(element => {
                             return <a href={`/t/${element.replace('#', '')}`} key={element}><span className={styles.tag}>{element}</span></a>

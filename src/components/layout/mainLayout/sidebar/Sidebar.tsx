@@ -42,7 +42,7 @@ const Sidebar = () => {
             </a>
           </div>
           <div className="sidebar-nav-element" id="default-sidebar-element-javascript" >
-            <a className="c-link c-link--block" onClick={signOut}>
+            <a className="c-link c-link--block" href="#" onClick={signOut}>
               Log out
             </a>
           </div>
