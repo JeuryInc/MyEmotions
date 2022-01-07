@@ -5,7 +5,7 @@ import styles from "./Register.module.scss";
 import { useRegisterUserMutation } from "../../services/AuthApi";
 import Button from "../../components/button/Button";
 import { useForm } from "react-hook-form";
-import Input from "../../components/input/Input"; 
+import Input from "../../components/input/Input";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,17 +13,24 @@ const Register = () => {
     const { register, handleSubmit,
         formState: { errors } } = useForm();
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     toast.configure();
 
     const [registerUser, { isError, isLoading }] = useRegisterUserMutation();
 
     const onSubmit = (model: any) => {
-        if (!isError && !isLoading) {
+        if (!isLoading) {
             registerUser(model)
                 .then((response: any) => {
-                    if (response.hasOwnProperty("error")) {
+                    if (response.hasOwnProperty("data")) {
+                        localStorage.setItem('token', response.data.token)
+                        localStorage.setItem( 'tokenExpirationTime', response.data.tokenExpirationTime);
+                        localStorage.setItem('id', response.data.id);
+                        toast.success("User registred", { autoClose: 3000 });
+                        navigate(ROOT);
+
+                    } else if (response.hasOwnProperty("error")) {
                         const { status } = response?.error;
 
                         if (status === 400) {
@@ -42,23 +49,10 @@ const Register = () => {
                                 toast.error(passwordError[index], { autoClose: 3000 });
                             }
                         }
-                    } else {
-                        localStorage.setItem('token', response?.data?.token)
-                        localStorage.setItem(
-                            'tokenExpirationTime',
-                            response?.data?.tokenExpirationTime
-                        );
-                        localStorage.setItem('id', response?.data?.id);
-
-                        toast.success("User registred", { autoClose: 3000 });
-
-                        navigate(ROOT);
                     }
                 })
                 .catch((error: any) => {
-
-                    toast.error("Something bad happenned", { autoClose: 3000 });
-
+                    toast.error("Something really bad happenned", { autoClose: 3000 });
                 });
         }
     };
