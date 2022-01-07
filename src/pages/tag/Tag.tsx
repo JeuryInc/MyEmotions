@@ -10,10 +10,9 @@ import { Link } from "react-router-dom";
 import { EMOTION_DETAILS } from "../../navigation/Routes";
 
 const Tag = () => {
-
     let { name } = useParams();
 
-    const { data, isError, isLoading } = useGetEmotionsByTagQuery({ tag: name });
+    const { data, isLoading } = useGetEmotionsByTagQuery({ tag: name });
 
     const _data = data as Array<any>;
 

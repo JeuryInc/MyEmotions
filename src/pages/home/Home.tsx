@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { EMOTION_DETAILS } from "../../navigation/Routes";
 
 const Home = () => {
-    const { data, isError, isLoading } = useGetEmotionsQuery({});
+    const { data, isLoading } = useGetEmotionsQuery({});
 
     const _data = data as Array<any>;
 

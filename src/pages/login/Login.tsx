@@ -18,7 +18,7 @@ const Login = () => {
 
     toast.configure();
 
-    const [loginUser, { isError, isLoading }] = useLoginUserMutation();
+    const [loginUser, { isLoading }] = useLoginUserMutation();
 
     const onSubmit = (model: any) => {      
         if (!isLoading) {

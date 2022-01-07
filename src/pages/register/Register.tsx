@@ -17,7 +17,7 @@ const Register = () => {
 
     toast.configure();
 
-    const [registerUser, { isError, isLoading }] = useRegisterUserMutation();
+    const [registerUser, { isLoading }] = useRegisterUserMutation();
 
     const onSubmit = (model: any) => {
         if (!isLoading) {

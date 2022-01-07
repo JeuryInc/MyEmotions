@@ -1,7 +1,7 @@
 import styles from "./MyEmotions.module.scss";
 import MainLayout from "../../components/layout/mainLayout/MainLayout";
 import { useGetEmotionsByUserQuery } from '../../services/EmotionsApi';
-import { isValidArray, splitStringToArray } from "../../utils/Helper";
+import { isValidArray } from "../../utils/Helper";
 import moment from "moment";
 import Card from "../../components/card/Card";
 import Loading from "../../components/loading/Loading";
@@ -39,7 +39,7 @@ export const MyEmotions = () => {
                     </div>
                 </div>
             </Card>
-        }) : <div className={styles.noemotion_container}> <h1>You still don't have saved emotions</h1>  <img src={Sad} className={styles.sad_face} />  <Button
+        }) : <div className={styles.noemotion_container}> <h1>You still don't have saved emotions</h1>  <img src={Sad} className={styles.sad_face} alt="any one emotion" />  <Button
             text="Create you first emotion"
             className={styles.button}
             onClicked={() => routeChange()}

@@ -7,7 +7,7 @@ const headers = () => ({
 
 export const emotionApi = createApi({
   reducerPath: "emotionApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://localhost:5001" }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_HOST}),
   endpoints: (builder) => ({ 
     getEmotions: builder.query({
       query: () => {
