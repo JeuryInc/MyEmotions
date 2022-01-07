@@ -94,7 +94,7 @@
 
   &:hover {
     &::-webkit-scrollbar-thumb {
-      background: $dark-gray-50;
+      background: $dark-gray;
     }
   }
 }
@@ -111,7 +111,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $dark-gray-50;
+    background-color: $dark-gray;
     border-radius: $width;
   }
 }

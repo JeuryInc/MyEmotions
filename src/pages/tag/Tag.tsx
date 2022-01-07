@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import MainLayout from "../../components/layout/mainLayout/MainLayout";
 import styles from "./Tag.module.scss";
 import { useGetEmotionsByTagQuery } from '../../services/EmotionsApi';
-import { isValidArray, splitStringToArray } from "../../utils/Helper";
+import { isValidArray } from "../../utils/Helper";
 import Card from "../../components/card/Card";
 import moment from "moment";
 import Loading from "../../components/loading/Loading";
@@ -19,7 +19,6 @@ const Tag = () => {
 
     var _html = isValidArray(_data) ? _data.map(
         (emotion) => {
-            console.log(emotion)
             return <Card boxShadow={true} className={styles.emotion_card} key={emotion.id}>
                 <div>
                     <div className={styles.owner_container}>
@@ -33,8 +32,8 @@ const Tag = () => {
                         <Link to={`${EMOTION_DETAILS}/${emotion.id}`} >
                             <h1 className={styles.title}>{emotion.title}</h1>
                         </Link>
-                        {splitStringToArray(emotion.tags[0]).map(element => {
-                            return <a href={`/t/${element.replace('#', '')}`} key={element}><span className={styles.tag}>{element}</span></a>
+                        {emotion.tags.map((element: string) => {
+                            return <a href={`/t/${element}`} key={element}><span className={styles.tag}>{element}</span></a>
                         })}
                     </div>
                 </div>

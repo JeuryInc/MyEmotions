@@ -1,72 +1,41 @@
-.title{
+@import "../../styles/colors.module";
+
+.title {
+    margin-top: 150px;
+    margin-bottom: 25px;
     font-size: 25px;
 }
-
 .container {
-    background-color: #fff;
+    background-color: $white;
     border-radius: 10px;
-    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%); 
+    box-shadow: 2px 2px 14px $black;
     min-height: 450x;
     text-align: center;
     justify-content: center;
-    display: flex; 
+    display: flex;
     margin-bottom: 150px;
     padding: 30px;
-    
-    .overlay_container {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 50%;
-        height: 100%;
-        overflow: hidden;
-        transition: transform 0.6s ease-in-out;
-        z-index: 100; 
 
-        .overlay {
-            background: #FF416C;
-            background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-            background: linear-gradient(to right, #FF4B2B, #FF416C);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: 0 0;
-            color: #FFFFFF;
-            position: relative;
-            left: -100%;
-            height: 100%;
-            width: 200%;
-            transform: translateX(0);
-            transition: transform 0.6s ease-in-out;
-
-            .overlay-panel {
-                position: absolute;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                padding: 0 40px;
-                text-align: center;
-                top: 0;
-                height: 100%;
-                width: 50%;
-                transform: translateX(0);
-                transition: transform 0.6s ease-in-out;
-                .ghost {
-                    background-color: transparent;
-                    border-color: #FFFFFF;
-                }
-            }
-            .overlay_right {
-                right: 0;
-                transform: translateX(0);
-            }
-            
-
-                        
-            .overlay_left {
-                transform: translateX(-20%);
-            }
-
+    .form_container {
+        width: 300px;
+        .btn_register {
+            margin: auto;
+            margin-top: 20px;
         }
-    } 
-} 
+        .name,
+        .username,
+        .password {
+            margin-bottom: 15px;
+        }
+        .name input,
+        .username input,
+        .password input {
+            background-color: $background-gray;
+        }
+        .link_holder {
+            display: block;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+    }
+}

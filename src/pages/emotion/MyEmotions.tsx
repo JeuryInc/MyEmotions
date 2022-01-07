@@ -5,14 +5,23 @@ import { isValidArray, splitStringToArray } from "../../utils/Helper";
 import moment from "moment";
 import Card from "../../components/card/Card";
 import Loading from "../../components/loading/Loading";
+import Sad from "../../assets/sad.png";
+import Button from "../../components/button/Button";
+import { useNavigate } from "react-router-dom";
+import { EMOTION } from "../../navigation/Routes";
 
 export const MyEmotions = () => {
     const { data, isLoading } = useGetEmotionsByUserQuery({});
 
     const _data = data as Array<any>;
 
+    const navigate = useNavigate();
+
+    const routeChange = () => navigate(EMOTION);
+
     var _html = isValidArray(_data) ? _data.map(
         (emotion) => {
+            console.log(emotion);
             return <Card boxShadow={true} className={styles.emotion_card} key={emotion.id}>
                 <div>
                     <div className={styles.owner_container}>
@@ -24,13 +33,17 @@ export const MyEmotions = () => {
                     </div>
                     <div className={styles.emotion_container}>
                         <h1 className={styles.title}>{emotion.title}</h1>
-                        {splitStringToArray(emotion.tags[0]).map(element => {
-                            return <a href={`/t/${element.replace('#', '')}`}><span key={element} className={styles.tag}>{element}</span></a>
+                        {emotion.tags.map((element:string) => {
+                            return <a href={`/t/${element}`} key={element}><span className={styles.tag}>{element}</span></a>
                         })}
                     </div>
                 </div>
             </Card>
-        }) : <></>;
+        }) : <div className={styles.noemotion_container}> <h1>You still don't have saved emotions</h1>  <img src={Sad} className={styles.sad_face} />  <Button
+            text="Create you first emotion"
+            className={styles.button}
+            onClicked={() => routeChange()}
+        /></div>;
 
     return (
         <MainLayout

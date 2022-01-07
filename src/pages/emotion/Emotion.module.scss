@@ -3,12 +3,14 @@
 
 .container{
     .subject{
-        margin-bottom: 10px;
-        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-top: 30px;
     }
 
     .publicemotion{
-        float: right;
+        position: absolute;
+        top: -40px;
+        right: 0;
     }
 
     .wrapper_editor{
@@ -25,5 +27,6 @@
     
     .btn_create_emotion{
         margin-top: 40px;
+        float: right;
     }
 }

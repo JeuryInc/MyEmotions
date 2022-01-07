@@ -3,6 +3,24 @@
 @import "../../styles/mixins/mediaquery.module.scss";
 @import "../../styles/mixins/vendorPrefixes.module.scss";
 
+.noemotion_container {
+    justify-content: center;
+    text-align: center;
+    margin-top: 60px;
+    h1 {
+        font-size: bold;
+        font-family: $Saira-medium;
+    }
+    .button {
+        margin: auto;
+        margin-top: 50px;
+    }
+    .sad_face {
+        width: 150px;
+        margin-top: 30px;
+    }
+}
+
 .emotion_card {
     margin-bottom: 20px;
     .owner_container {
@@ -22,8 +40,6 @@
                 font-size: 16px;
                 margin-top: 10px;
                 margin: 0;
-            }
-            .publishTime {
             }
         }
     }

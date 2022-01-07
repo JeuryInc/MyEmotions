@@ -62,7 +62,7 @@ const Emotion = () => {
                     <div>
                         <label className={styles.publicemotion}>
                             <input type="checkbox" name="isPublic" checked={isPublic} onChange={(e) => { setIsPublic(!isPublic) }} />
-                            Is a public emotion?</label>
+                             Is a public emotion?</label>
                     </div>
 
                     <Input label="What do you want to write about today?"
@@ -89,15 +89,7 @@ const Emotion = () => {
                     <ReactTagInput
                         tags={tags}
                         placeholder={"Which tags best describe your emotion? (write and press enter)"}
-                        onChange={(newTags: any) => setTags(newTags)}
-                        validator={(value) => {
-                            const anyData = value.length > 0;
-                            if (!anyData) {
-                                alert("Please enter at leats one field");
-                            }
-                            
-                            return anyData;
-                        }}
+                        onChange={(newTags: any) => setTags(newTags)} 
                     />
 
                     <Button text="Create emotion"

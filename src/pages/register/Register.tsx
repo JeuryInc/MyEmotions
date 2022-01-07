@@ -78,6 +78,7 @@ const Register = () => {
                                 label="Name"
                                 name="name"
                                 type="text"
+                                className={`${styles.name}`}
                                 register={register}
                                 validation={{
                                     required: {
@@ -92,6 +93,7 @@ const Register = () => {
                                 label="Username"
                                 name="username"
                                 type="text"
+                                className={`${styles.username}`}
                                 register={register}
                                 validation={{
                                     required: {
@@ -106,6 +108,7 @@ const Register = () => {
                                 label="Password"
                                 name="password"
                                 type="password"
+                                className={`${styles.password}`}
                                 register={register}
                                 validation={{
                                     required: {
@@ -129,9 +132,11 @@ const Register = () => {
                                 or join without account
                             </Link>
                             <Button
+                                className={styles.btn_register}
                                 isLoading={isLoading}
                                 btnType="submit"
-                                disabled={isLoading} text="Register" />
+                                disabled={isLoading}
+                                text="Register" />
                         </form>
                     </div>
                 </div>

@@ -13,9 +13,7 @@
   }
 }
 
-.ownDiv {
-  display: flex;
-  flex: 0 0 100%;
+.ownDiv { 
   max-width: 100%;
   justify-content: center;
   align-items: center;
@@ -44,7 +42,7 @@
       right: 0px;
       bottom: 0px;
       background-color: $transparent-bg;
-      border: solid 2px $turquoise;
+      border: solid 2px $dark-blue;
       border-radius: 14px;
       opacity: 0;
       @include transition(all, 200ms, ease-out, 0s);
@@ -93,113 +91,14 @@
     }
 
     &.ownButtonStyleDefault {
-      color: $dark-blue-85;
-      background-color: $turquoise;
+      color: $white;
+      background-color: $dark-blue;
 
       .spinner {
         .dot {
-          border-color: $dark-blue-85;
-        }
-      }
-
-      &.invertFontColorClass {
-        color: $white;
-
-        .spinner {
-          .dot {
-            border-color: $white;
-          }
-        }
-      }
-
-      &:active,
-      &:focus {
-        &:after {
-          border-color: $turquoise;
-        }
-      }
-    }
-
-    &.ownButtonStyleOne {
-      color: $turquoise;
-      background-color: $dark-green;
-
-      .spinner {
-        .dot {
-          border-color: $turquoise;
-        }
-      }
-
-      &.invertFontColorClass {
-        color: $white;
-
-        .spinner {
-          .dot {
-            border-color: $white;
-          }
-        }
-      }
-
-      &:after {
-        border-color: $dark-green;
-      }
-
-      &:active,
-      &:focus {
-        &:after {
           border-color: $dark-green;
         }
       }
-    }
- 
-
-    &.ownButtonStyleThree  
-
-    &.ownButtonStyleFour {
-      color: $dark-blue-85;
-      background-color: $white;
-
-      .spinner {
-        .dot {
-          border-color: $dark-blue-85;
-        }
-      }
-
-      &:after {
-        border-color: $white-50;
-      }
-
-      &:hover {
-        background-color: $white-light;
-      }
-
-      &:active,
-      &:focus {
-        &:after {
-          border-color: $white;
-        }
-      }
-
-      &:disabled {
-        &:hover,
-        &:active,
-        &:focus {
-          background-color: $white;
-        }
-      }
-    }
-
-    &.ownButtonStyleFive {
-      color: $dark-blue-85;
-      background-color: $transparent-bg;
-      border: solid 2px $turquoise;
-      padding: 8px 20px;
-
-      .spinner {
-        .dot {
-          border-color: $dark-blue-85;
-        }
-      }
 
       &.invertFontColorClass {
         color: $white;
@@ -211,134 +110,14 @@
         }
       }
 
-      &:after {
-        border-color: $turquoise;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-      }
-
-      &:hover {
-        background-color: $turquoise;
-
-        &:after {
-          top: -6px;
-          left: -6px;
-          right: -6px;
-          bottom: -6px;
-        }
-      }
-
       &:active,
       &:focus {
-        background-color: $turquoise-32;
-
         &:after {
-          border-color: $turquoise;
-          top: -6px;
-          left: -6px;
-          right: -6px;
-          bottom: -6px;
+          border-color: $dark-blue;
         }
       }
-
-      &:disabled {
-        &:hover,
-        &:active,
-        &:focus {
-          background-color: $transparent-bg;
-        }
-      }
-    }
-
-     
-
-    &.ownButtonStyleSeven {
-      color: $dark-blue-85;
-      background-color: $transparent-bg;
-      border: solid 2px $dark-green;
-      padding: 8px 20px;
-
-      .spinner {
-        .dot {
-          border-color: $dark-blue-85;
-        }
-      }
-
-      &:after {
-        border-color: $dark-green;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-      }
-
-      &:hover {
-        background-color: $dark-green;
-
-        &:after {
-          top: -6px;
-          left: -6px;
-          right: -6px;
-          bottom: -6px;
-        }
-      }
-
-      &:active,
-      &:focus {
-        background-color: $dark-green;
-
-        &:after {
-          border-color: $dark-green;
-          top: -6px;
-          left: -6px;
-          right: -6px;
-          bottom: -6px;
-        }
-      }
-
-      &:disabled {
-        &:hover,
-        &:active,
-        &:focus {
-          background-color: $transparent-bg;
-        }
-      }
-
-      &.invertFontColorClass {
-        border-color: $white;
-        color: $white;
-
-        .spinner {
-          .dot {
-            border-color: $white;
-          }
-        }
-
-        &:after {
-          border-color: $white;
-        }
-
-        &:hover {
-          background-color: $dark-green-16;
-
-          &:after {
-            border-color: $white-50;
-          }
-        }
-
-        &:active,
-        &:focus {
-          background-color: $white;
-
-          &:after {
-            border-color: $white;
-          }
-        }
-      }
-    }
-
+    } 
+    
     &.small_btn {
       font-size: $fs-xs;
       padding: 10px 20px;

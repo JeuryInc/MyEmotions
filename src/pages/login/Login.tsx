@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/input/Input";
 import LoginLayout from "../../components/layout/loginLayout/LoginLayout";
 import { REGISTER, ROOT } from "../../navigation/Routes";
@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
+    const navigate = useNavigate(); 
+
     const { register, handleSubmit,
         formState: { errors } } = useForm();
 
@@ -18,22 +20,23 @@ const Login = () => {
 
     const [loginUser, { isError, isLoading }] = useLoginUserMutation();
 
-    const onSubmit = (model: any) => {
-        if (!isError && !isLoading) {
+    const onSubmit = (model: any) => {      
+        if (!isLoading) {
             loginUser(model)
                 .then((response: any) => {
-                    if ('password' in response?.error?.data) {
+                    if (response.hasOwnProperty("data")) {
+                        localStorage.setItem('token', response.data.token);
+                        localStorage.setItem('tokenExpirationTime', response.data.tokenExpirationTime);
+                        localStorage.setItem('id', response.data.id);                     
+
+                        toast.success("Welcome!", { autoClose: 3000 });
+                        navigate(ROOT);
+                        return;
+                    } else if ('password' in response?.error?.data) {
                         toast.error(response?.error?.data.password, { autoClose: 3000 })
                     } else if ('username' in response?.error?.data) {
                         toast.error(response?.error?.data.username, { autoClose: 3000 })
-                    } else { 
-                        localStorage.setItem('token', response.token)
-                        localStorage.setItem(
-                            'tokenExpirationTime',
-                            response.tokenExpirationTime
-                        )
-                        localStorage.setItem('id', response.id)
-                    }
+                    }  
                 })
                 .catch((error: any) => {
                     toast.error(error, { autoClose: 3000 })
@@ -52,6 +55,7 @@ const Login = () => {
                             <Input
                                 label="Username"
                                 name="username"
+                                className={styles.username}
                                 type="text"
                                 register={register}
                                 validation={{
@@ -67,6 +71,7 @@ const Login = () => {
                             <Input
                                 label="Password"
                                 name="password"
+                                className={styles.password}
                                 type="password"
                                 register={register}
                                 validation={{
@@ -92,6 +97,7 @@ const Login = () => {
                             </Link>
 
                             <Button
+                                className={styles.btn_login}
                                 isLoading={isLoading}
                                 btnType="submit"
                                 disabled={isLoading}

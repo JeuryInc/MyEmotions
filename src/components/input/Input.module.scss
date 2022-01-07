@@ -23,7 +23,7 @@
     width: 100%;
     height: 60px;
     background-color: $transparent-bg;
-    border: solid 2px $turquoise-50;
+    border: solid 2px $turquoise;
     border-radius: 14px;
     opacity: 0;
     @include transition(all, 200ms, ease-out, 0s);
@@ -84,8 +84,8 @@
   .input {
     font-family: $Saira-semibold;
     font-size: $fs-sm;
-    color: $dark-blue-second;
-    background-color: $dark-green-06;
+    color: $dark-blue;
+    background-color: $dark-green;
     line-height: $lh-2lg;
     width: 100%;
     height: 60px;
@@ -163,7 +163,7 @@
     &:focus,
     &:not(:placeholder-shown) {
       + .border + .label_text {
-        color: $dark-green-80;
+        color: $dark-green;
         transform: translate(12px, 8px) scale(0.8);
       }
     }
@@ -181,7 +181,7 @@
     &:-webkit-autofill {
       &:hover {
         + .border + .label_text {
-          color: $dark-green-80;
+          color: $dark-green;
         }
       }
     }
@@ -191,7 +191,7 @@
     font-family: $Saira-regular;
     line-height: $lh-1lg;
     font-size: $fs-xxs;
-    color: $dark-green-80;
+    color: $dark-green;
     padding: 4px 0 0 12px;
 
     &.error {
@@ -241,25 +241,25 @@
     }
 
     .input {
-      background-color: $white-06;
+      background-color: $white;
       &:not(:placeholder-shown) {
         color: $white;
         + .border + .label_text {
-          color: $white-80;
+          color: $white;
         }
       }
 
       &:focus {
         background-color: $white;
-        color: $dark-blue-second;
+        color: $dark-blue;
         + .border + .label_text {
-          color: $dark-green-80;
+          color: $dark-green;
         }
       }
     }
 
     & > span {
-      color: $white-80;
+      color: $white;
     }
   }
 
@@ -275,10 +275,10 @@
   &.disabled_class {
     .input {
       cursor: not-allowed;
-      color: $dark-blue-second-50;
-      background-color: $dark-green-16;
+      color: $dark-blue;
+      background-color: $dark-green;
       + .border + .label_text {
-        color: $dark-green-50;
+        color: $dark-green;
       }
 
       + .border {
@@ -297,10 +297,10 @@
 
     &.dark_bg {
       .input {
-        background-color: $white-16;
-        color: $white-50;
+        background-color: $white;
+        color: $white;
         + .border + .label_text {
-          color: $white-50;
+          color: $white;
         }
 
         + .border + .label_text + .icon {

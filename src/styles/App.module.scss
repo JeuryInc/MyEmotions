@@ -6,10 +6,11 @@
 body {
   margin: 0;
   font-family: $Saira-light;
-  color: $dark-blue-90;
+  color: $dark-blue;
   background: $background;
   -webkit-text-size-adjust: 100%; //fix for iOS
   scroll-behavior: smooth;
+  
   @include customScrollBarBody(8px);
 
   * {

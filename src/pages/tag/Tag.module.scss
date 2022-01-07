@@ -7,11 +7,12 @@
     color: $black;
     box-shadow: 0 0 0 1 px;
     overflow-wrap: anywhere;
-    border-top-color: #890606;
+    border-top-color: $dark-blue;   
+    box-shadow: 2px 2px 14px $dark-gray;
 }
 
 .branded {
-    border-top: 1rem solid #890606;
+    border-top: 1rem solid $dark-blue;
 }
 
 .loading {

@@ -13,11 +13,9 @@ export const emotionApi = createApi({
       query: () => {
         return {
           url: "/api/Emotion/GetEmotions",
-          method: "GET",
-          headers: headers(),
+          method: "GET"
         };
       },
-      transformResponse: (response) => response,
       keepUnusedDataFor: 120,
     }),
     createEmotion: builder.mutation({
@@ -33,11 +31,9 @@ export const emotionApi = createApi({
       query: ({ emotionId }) => {
         return {
           url:  `/api/Emotion/GetEmotionDetail/${emotionId}`,
-          method: "GET",
-          headers: headers(),
+          method: "GET"
         };
       },
-      transformResponse: (response) => response,
       keepUnusedDataFor: 120,
     }),    
     getEmotionsByUser: builder.query({
@@ -48,7 +44,6 @@ export const emotionApi = createApi({
           headers: headers(),
         };
       },
-      transformResponse: (response) => response,
       keepUnusedDataFor: 120,
     }),
     getEmotionsByTag: builder.query({
@@ -56,10 +51,8 @@ export const emotionApi = createApi({
         return {
           url: `/api/Emotion/GetEmotionsByTag/${tag}`,
           method: "GET",
-          headers: headers(),
         };
       },
-      transformResponse: (response) => response,
       keepUnusedDataFor: 120,
     }), 
     getTags: builder.query({
@@ -67,10 +60,8 @@ export const emotionApi = createApi({
         return {
           url: "/api/Emotion/GetTags",
           method: "GET",
-          headers: headers(),
         };
       },
-      transformResponse: (response) => response,
       keepUnusedDataFor: 120,
     }),
   }),

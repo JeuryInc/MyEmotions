@@ -5,16 +5,25 @@ import Loading from '../../../loading/Loading';
 import styles from "./Sidebar.module.scss";
 import { signOut, isLogged } from '../../../../utils/Auth'
 import { useState } from 'react';
+import { LOGIN } from '../../../../navigation/Routes';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
 
   const menuOpened = useAppSelector((state) => state.menuOpener.menuOpened);
 
   const { data, isLoading } = useGetTagsQuery({});
 
   const _data = data as Array<any>;
-  
+
   const [logged] = useState(isLogged());
+
+  const logOut = () => {
+    signOut();
+    
+  //  navigate(LOGIN);
+  }
 
   let _html = isValidArray(_data) ? _data.map(
     (emotion) => {
@@ -42,7 +51,7 @@ const Sidebar = () => {
             </a>
           </div>
           <div className="sidebar-nav-element" id="default-sidebar-element-javascript" >
-            <a className="c-link c-link--block" href="#" onClick={signOut}>
+            <a className="c-link c-link--block" href="/login" onClick={logOut}>
               Log out
             </a>
           </div>
@@ -52,7 +61,6 @@ const Sidebar = () => {
       <div id="sidebar-nav-default-tags" className="overflow-y-auto" >
         {isLoading ? <Loading
           fullScreen={false}
-          quantityDot={3}
           className={styles.loading}
         /> : _html}
       </div>

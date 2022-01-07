@@ -3,94 +3,18 @@
 /** Primary colors **/
 $background: #f8fbff;
 $transparent-bg: transparent;
-$turquoise: #29bfc2;
-$turquoise-12: #29bfc21f;
-$turquoise-16: #29bfc229;
-$turquoise-20: #29bfc233;
-$turquoise-32: #29bfc252;
-$turquoise-50: #29bfc280;
-$turquoise-60: #29bfc299;
-$turquoise-80: #29bfc280;
-$light-turquoise: #5cced1;
+$turquoise: #29bfc2; 
 $white: #ffffff;
-$black: #000;
-$white-06: #ffffff0f;
-$white-16: #ffffff29;
-$white-24: #ffffff3d;
-$white-32: #ffffff52;
-$white-50: #ffffff80;
-$white-60: #ffffff99;
-$white-80: #ffffffcc;
+$black: #000; 
 $white-light: #f0f0f0;
-
-$theme-colors: (
-  primary:         #4B49AC,
-  secondary:       #a3a4a5,
-  success:         #57B657,
-  info:            #248AFD,
-  warning:         #FFC100,
-  danger:          #FF4747,
-  light:           #f8f9fa,
-  dark:            #282f3a
-);
-
-////////// COLOR VARIABLES //////////
-$content-bg: #F5F7FF;
-$border-color: #CED4DA;
+ 
 $border-radius: 8px;
 
-/** Secondary colors **/
-$aux-2: #5c95ff;
-$aux-2-12: #5c95ff1f;
-$aux-2-16: #5c95ff29;
-$aux-2-20: #5c95ff33;
-$aux-2-50: #5c95ff80;
+/** Secondary colors **/ 
 $background-gray: #e9eef2;
-$dark-blue: #0a1921;
-$dark-blue-40: #0a192166;
-$dark-blue-60: #0a192199;
-$dark-blue-second: #061921;
-$dark-blue-second-50: #06192180;
-$dark-blue-90: #172f45;
-$dark-blue-85: #123040;
-$dark-blue-80: #0c3c6e;
-$dark-blue-80-12: #0c3c6e1f;
-$dark-blue-80-20: #0c3c6e33;
-$dark-blue-60: #12304099;
-$dark-gray-100: #4c6978;
-$dark-gray-90: #5c7f91;
-$dark-gray-50: #55586980;
-$dark-green: #1a4359;
-$dark-green-06: #1a43590f;
-$dark-green-10: #1a43591a;
-$dark-green-12: #1a43591f;
-$dark-green-16: #1a435929;
-$dark-green-20: #1a435933;
-$dark-green-24: #1a43593d;
-$dark-green-32: #1a435952;
-$dark-green-36: #1a43595c;
-$dark-green-50: #1a435980;
-$dark-green-60: #1a435999;
-$dark-green-80: #1a4359cc;
-$input-hover: #ebeff2;
-$light-blue: #5c95ff;
-$light-gray: #dfe6ec;
-$light-gray-12: #dfe6ec1f;
-$light-gray-20: #dfe6ec33;
-$light-gray-50: #dfe6ec80;
-$progress-green: #29c299;
-$progress-green-12: #29c2991f;
-$progress-green-16: #29c29929;
-$progress-green-20: #29c29933;
-$progress-green-50: #29c29980;
-$sec-aux: #578699;
-$sec-aux-12: #5786991f;
-$sec-aux-16: #57869929;
-$sec-aux-20: #57869933;
-$sec-aux-50: #57869980;
-$violet: #9dacff;
-$violet-12: #9dacff1f;
-$violet-20: #9dacff33;
+$dark-blue: #0a1921; 
+$dark-green: #1a4359; 
+$dark-gray:#A3A3A3; 
 
 /** Notifications **/
 $error: #f87575;

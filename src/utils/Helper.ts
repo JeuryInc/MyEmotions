@@ -16,6 +16,6 @@ export const isValidArray = (data: Array<any>) => {
  * @returns {Array}
  */
 export const splitStringToArray = (data: string) => {
-    return data ? data.split(" ") : [];
+    return data ? data.split(",") : [];
 };
 

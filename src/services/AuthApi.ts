@@ -9,16 +9,14 @@ export const authApi = createApi({
         url: "/api/auth/register",
         method: "POST",
         body,
-      }),
-      transformResponse: (response) => response
+      })
     }),
     loginUser: builder.mutation({ 
       query: (body) => ({
         url: "/api/auth/login",
         method: "POST",
         body,
-      }),
-      transformResponse: (response) => response
+      })
     }),
   }),
 });
