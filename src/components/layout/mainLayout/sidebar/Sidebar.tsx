@@ -4,12 +4,9 @@ import { isValidArray } from "../../../../utils/Helper";
 import Loading from '../../../loading/Loading';
 import styles from "./Sidebar.module.scss";
 import { signOut, isLogged } from '../../../../utils/Auth'
-import { useState } from 'react';
-import { LOGIN } from '../../../../navigation/Routes';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';  
 
-const Sidebar = () => {
-  const navigate = useNavigate();
+const Sidebar = () => { 
 
   const menuOpened = useAppSelector((state) => state.menuOpener.menuOpened);
 
@@ -20,9 +17,7 @@ const Sidebar = () => {
   const [logged] = useState(isLogged());
 
   const logOut = () => {
-    signOut();
-    
-  //  navigate(LOGIN);
+    signOut(); 
   }
 
   let _html = isValidArray(_data) ? _data.map(
