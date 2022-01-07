@@ -40,8 +40,7 @@ const Home = () => {
         <MainLayout>
             {isLoading ? (
                 <Loading
-                    fullScreen={false}
-                    quantityDot={3}
+                    fullScreen={false} 
                     className={styles.loading}
                 />
             ) : <>{_html}</>

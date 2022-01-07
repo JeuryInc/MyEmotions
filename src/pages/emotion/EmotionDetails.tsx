@@ -41,8 +41,7 @@ export const EmotionDetails = () => {
         <div className={styles.container}> 
             <Card boxShadow={true}>
                 {isLoading ? <Loading
-                    fullScreen={false}
-                    quantityDot={3}
+                    fullScreen={false} 
                     className={styles.loading}
                 /> : _html}
 

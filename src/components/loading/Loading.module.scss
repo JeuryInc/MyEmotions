@@ -37,7 +37,7 @@ $dot_size_small: 10px;
       width: $dot_size;
       height: $dot_size;
       margin: 0 calc(#{$dot_size} / 2);
-      border: calc(#{$dot_size} / 5) solid #0cccc6;
+      border: calc(#{$dot_size} / 5) solid $dark-green;
       border-radius: 50%;
       float: left;
       transform: scale(0);
@@ -78,7 +78,7 @@ $dot_size_small: 10px;
         width: $dot_size_small;
         height: $dot_size_small;
         margin: 0 calc(#{$dot_size_small} / 2);
-        border: calc(#{$dot_size_small} / 5) solid #0cccc6;
+        border: calc(#{$dot_size_small} / 5) solid $dark-green;
       }
     }
   }
