@@ -30,7 +30,7 @@ const Header = () => {
   return (<nav className="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
       <a className="navbar-brand brand-logo" href="/"><img src={Logo} className="mr-2" alt="logo" /></a>
-      <a className="navbar-brand brand-logo-mini" href="index.html">ME</a>
+      <a className="navbar-brand brand-logo-mini" href="/">ME</a>
     </div>
     <div className="navbar-menu-wrapper d-flex align-items-center justify-content-end">
       <ul className="navbar-nav navbar-nav-right">
