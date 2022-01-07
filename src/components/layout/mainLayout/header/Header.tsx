@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useAppDispatch } from "../../../../utils/hooks";
 import { toggleSidebar } from "../../../../redux/slices/MenuSlice";
 import { IsTabletHook } from "../../../../utils/IsMobileHook";
+import styles from "./Header.module.scss";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Header = () => {
     <div className="navbar-menu-wrapper d-flex align-items-center justify-content-end">
       <ul className="navbar-nav navbar-nav-right">
         {!logged ? <li className="nav-item nav-profile dropdown">
-          <Button onClicked={logIn} text="Login" />
+          <Button onClicked={logIn} text="Login" className={styles.button} />
         </li> : <></>}
         {
           isTable ? <li className="nav-item nav-profile dropdown">
