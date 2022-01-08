@@ -7,7 +7,29 @@
   -o-transition: $selector $time $type $delay;
   transition: $selector $time $type $delay;
 }  
- 
+
+@mixin customScrollBar($width: 4px) {
+  scrollbar-width: thin; /* Firefox */
+
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+    background: $transparent-bg;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $transparent-bg;
+    border-radius: $width;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: $dark-gray;
+    }
+  }
+}
+
 @mixin customScrollBarBody($width) {
   scrollbar-width: thin;
 
